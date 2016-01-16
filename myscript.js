@@ -1,34 +1,47 @@
 var books={"Books":[
-{"name":"INFERNO","author":"Dan Brown","price":" &#8377 20","isbn":"128431K37"},
-{"name":"DA VINCI CODE","author":"Dan Brown","price":" &#8377 20","isbn":"143431K78"},
-{"name":"THE HUNGER GAMES","author":"Suzanne Collins","price":" &#8377 50","isbn":"729401K97"},
-{"name":"HALF GIRLFRIEND","author":"Chetan Bhagat","price":" &#8377 10","isbn":"894431H08"},
-{"name":"THE GOOGLE STORY","author":"David Vise","price":" &#8377 30","isbn":"963431X67"},
-{"name":"INTERPRETER OF MALADIES","author":"Jhumpa Lahiri","price":" &#8377 15","isbn":"795431T62"},
-{"name":"PARIS TRANCE","author":"Geoff Dyer","price":" &#8377 20","isbn":"169742K64"},
-{"name":"THE INVISIBLE MAN","author":"H.G.Wells","price":" &#8377 20","isbn":"749360K82"},
-{"name":"THE FAULT IN OUR STARS","author":"John Green","price":" &#8377 25","isbn":"783572J75"},
-{"name":"THE RACKETEER","author":"John Grisham","price":" &#8377 20","isbn":"673562H98"},
-{"name":"THE ALCHEMIST","author":"Paulo Cohelo","price":" &#8377 20","isbn":"563982K61"}
+{"name":"INFERNO","author":"Dan Brown","price":"20","isbn":"128431K37"},
+{"name":"DA VINCI CODE","author":"Dan Brown","price":"20","isbn":"143431K78"},
+{"name":"THE HUNGER GAMES","author":"Suzanne Collins","price":"50","isbn":"729401K97"},
+{"name":"HALF GIRLFRIEND","author":"Chetan Bhagat","price":"10","isbn":"894431H08"},
+{"name":"THE GOOGLE STORY","author":"David Vise","price":"30","isbn":"963431X67"},
+{"name":"INTERPRETER OF MALADIES","author":"Jhumpa Lahiri","price":"15","isbn":"795431T62"},
+{"name":"PARIS TRANCE","author":"Geoff Dyer","price":"20","isbn":"169742K64"},
+{"name":"THE INVISIBLE MAN","author":"H.G.Wells","price":"20","isbn":"749360K82"},
+{"name":"THE FAULT IN OUR STARS","author":"John Green","price":"25","isbn":"783572J75"},
+{"name":"THE RACKETEER","author":"John Grisham","price":"20","isbn":"673562H98"},
+{"name":"THE ALCHEMIST","author":"Paulo Cohelo","price":"20","isbn":"563982K61"}
 ]};
 
-var out="";
-var i;
-for(i=0;i<=10;i++){
-  out+= '<li onclick="details(' + i +')">' + books.Books[i].name + '</li>' + '<hr>';
-}
 addEventListener("load", function(){
-  document.getElementById("lists").innerHTML = out;
+	loadBooks();
+
 });
 
-function details(a){
-  var out1='NAME: ' + books.Books[a].name  + '<br>' + 'AUTHOR: ' + books.Books[a].author + '<br>' + 'PRICE: ' + books.Books[a].price + '<br>' + 'ISBN: ' + books.Books[a].isbn + '<br>' ;
-  document.getElementById("Details").innerHTML = out1 ;
+addEventListener("load", function(){
+	document.getElementById("addBook").onclick=function(){
+		document.getElementById("bookDetailsContainer").style.display = 'none';
+		document.getElementById("addBookContainer").style.display = 'block';
+	}
+});
+
+function loadBooks() {
+	var htmlOut="";
+	for(var i=0;i<books.Books.length;i++) {
+		htmlOut+= '<li><a onclick="return viewBook(\'' + books.Books[i].isbn +'\')">' + books.Books[i].name + '</a></li>' + '<hr>';
+	}
+	document.getElementById("lists").innerHTML = htmlOut;
 }
 
 function viewBook(ISBN){
-  for(i=0;i<=10;i++){
-    if(books.Books[i].isbn === ISBN)
-      return (books.Books[i].name);
-  }
+	document.getElementById("bookDetailsContainer").style.display = 'block';
+	document.getElementById("addBookContainer").style.display = 'none';
+
+	for(var i=0;i<books.Books.length;i++){
+		if(books.Books[i].isbn === ISBN) {
+			var htmlBookDetails = 'NAME: ' + books.Books[i].name  + '<br>' + 'AUTHOR: ' + books.Books[i].author + '<br>' + 'PRICE: &#8377;' + books.Books[i].price + '<br>' + 'ISBN: ' + books.Books[i].isbn + '<br>' ;
+			document.getElementById("bookDetails").innerHTML = htmlBookDetails ;
+			break;
+		}
+	}
+	return false;
 }

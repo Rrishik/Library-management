@@ -1,48 +1,46 @@
-table {
-    text-align: left;
-    border-collapse: collapse;
-    border: 0px solid black;
-    width: 100%;
-}
-
-#heading {
-    background-color: #4CAF50;
+.heading {
+    background-color: #009933;
     color: white;
-    width: 80%;
-}
-
-#Details {
-    list-style-type:none;
+    width: 100%;
+    height: 100px;
+    padding: 8px;
 }
 
 body {
     background-color: #f2f2f2;
 }
 
-#addBook {
-    font-weight: bolder;
-    font-style: oblique;
+.list {
+    line-height: 30px;
+    background-color: #adad85;
+    height: 100%;
+    width: 40%;
+    float: left;
+    padding: 5px;
 }
 
-#detail {
-    height: 50px;
+.mainContainer {
+    width: 30%;
+    float: left;
+    padding: 10px;
     vertical-align: top;
+    background-color: inherit;
 }
 
-#Input {
-    height: 30px;
-    vertical-align: bottom;
+.link {
+    float: right;
+    vertical-align: top;
+    padding: 5px;
 }
 
-#addForm {
+#addBookContainer {
     display: none;
 }
 
-#list {
-    width: 30%;
+#bookDetailsContainer {
+    display: none;
 }
 
-#link {
-    vertical-align: top;
-    width: 20%;
+a {
+	cursor: pointer;
 }
