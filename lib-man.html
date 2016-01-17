@@ -26,17 +26,43 @@
 		</div>
 		<div id="addBookContainer">
 			<h2>Add New Book</h2><br>
-			<div id="addForm">
-			  Book Name: &nbsp;
-			  <input type="text" name="Name"><br>
-			  Author Name: &nbsp;
-			  <input type="text" name="Author"><br>
-			  Book Price: &nbsp;
-			  <input type="text" name="Price"><br>
-			  ISBN: &nbsp;
-			  <input type="text" name="Isbn"><br>
-        <input type="submit" name="submit">
-			</div>
+			<form id="addForm">
+        <table>
+          <tr>
+            <td>
+              Book Name: &nbsp;
+            </td>
+            <td>
+              <input type="text" name="Name"><br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Author Name: &nbsp;
+            </td>
+            <td>
+              <input type="text" name="Author"><br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Book Price: &nbsp;
+            </td>
+            <td>
+              <input type="text" name="Price"><br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ISBN: &nbsp;
+            </td>
+            <td>
+              <input type="text" name="Isbn"><br>
+            </td>
+          </tr>
+        </table>
+        <button onclick="return onSubmit()">SUBMIT</button>
+			</form>
 		</div>
 	  </div>
     </div>
