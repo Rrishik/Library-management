@@ -47,11 +47,13 @@ function viewBook(ISBN){
 }
 
 function onSubmit(){
+	document.getElementById("addBookContainer").style.display = 'none';
 	var NAME = document.getElementById("addForm").Name.value;
 	var AUTHOR = document.getElementById("addForm").Author.value;
 	var PRICE = document.getElementById("addForm").Price.value;
 	var ISBN = document.getElementById("addForm").Isbn.value;
 	books.Books.push({"name":NAME,"author":AUTHOR,"price":PRICE,"isbn":ISBN});
 	loadBooks();
+	alert("The Book has been added!!")
 	return false;
 }
